@@ -114,7 +114,7 @@ def extract_assets(
             # the check of the various sub directories is required to avoid // in the path
             obj_dest = os.path.join(
                 dst,
-                *(x for x in obj_path.split("/")[:ignore_first_container_dirs] if x),
+                *(x for x in obj_path.split("/")[ignore_first_container_dirs:] if x),
             )
             os.makedirs(os.path.dirname(obj_dest), exist_ok=True)
             exported.extend(
